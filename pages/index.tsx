@@ -37,6 +37,8 @@ console.log("AAAAAAHHH");
         name='Dark Horse Coffee'
         imgUrl='/hero-image.png'
         href="/coffee-store/darkhorse-coffee"
+
+        
        
        />
       </main>
