@@ -35,10 +35,10 @@ console.log("AAAAAAHHH");
        </div>
        <Card 
         name='Dark Horse Coffee'
-        imgUrl='/hero-image.png'
+        imgUrl='/static/hero-image.png'
         href="/coffee-store/darkhorse-coffee"
 
-        
+
        
        />
       </main>
