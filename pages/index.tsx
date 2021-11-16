@@ -46,6 +46,7 @@ console.log("AAAAAAHHH");
         href="/coffee-store/darkhorse-coffee"
         className={styles.card}
         />
+        
         <Card 
         name='Dark Horse Coffee'
         imgUrl='/static/hero-image.png'
