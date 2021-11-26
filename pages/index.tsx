@@ -3,18 +3,28 @@ import Image from 'next/image';
 import Banner from '../components/banner/banner';
 import Card from '../components/card/card';
 import styles from '../styles/Home.module.css';
-
-
+import CoffieStores from "./../data/coffee-stores.json";
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
+import { CardCoffieShopData } from "./../dataModel/cardCoffieShopData";
 interface HomeProps {
 src:string ;
 alt: string;
 height:number;
 width:number;
+CoffieStores:Array<CardCoffieShopData>;
 } 
 
- const Home:React.FC<HomeProps> = ({src,alt,height ,width}) => {
 
-  
+export async function getStaticProps(context:any) {
+  return {
+    props: {CoffieStores}, // will be passed to the page component as props
+  }
+}
+
+
+ const Home:React.FC<HomeProps> = ({src,alt,height ,width,CoffieStores}) => {
+
+console.log("coffieconsi",CoffieStores)
 
 const handleOnBannerBtnClick = () => {
 console.log("AAAAAAHHH");  
@@ -33,27 +43,30 @@ console.log("AAAAAAHHH");
        <div className={styles.heroImage}>
        <Image src="/static/hero-image.png" alt="another" width={700} height={400} />
        </div>
+       { CoffieStores.length > 0 && 
+       <>
+       <div> 
+       <h2 className={styles.heading2}>Toronto Stores</h2>
        <div className={styles.cardLayout} >
-       <Card 
-        name='Dark Horse Coffee'
-        imgUrl='/static/hero-image.png'
-        href="/coffee-store/darkhorse-coffee"
-        className={styles.card}
-        />
+   
+      { CoffieStores.map((CoffieStore :any) => {
+      return (
         <Card 
-        name='Dark Horse Coffee'
-        imgUrl='/static/hero-image.png'
-        href="/coffee-store/darkhorse-coffee"
-        className={styles.card}
-        />
-        
-        <Card 
-        name='Dark Horse Coffee'
-        imgUrl='/static/hero-image.png'
-        href="/coffee-store/darkhorse-coffee"
-        className={styles.card}
-        />
-        </div>
+         key={CoffieStore.id}
+         name={CoffieStore.name}
+         imgUrl={CoffieStore.imgUrl}
+         href={`/coffee-store/${CoffieStore.id}`}
+         className={styles.card}
+         />
+      )   
+      }  
+      )}
+      </div>
+      </div>
+      </>
+      }
+
+
       </main>
   </div>
   )
