@@ -6,12 +6,7 @@ import { ParsedUrlQuery } from 'querystring';
 
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
   export const getStaticProps: GetStaticProps = async (context:any) => {
-
-
- 
-
-
-    return {
+   return {
       props: {CardCoffieShopData:CoffieConisorData.find( coffieStore   => {
      return  coffieStore.id === context.params.id;
     } ) || null }, // will be passed to the page component as props
@@ -20,7 +15,7 @@ import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
   export const getStaticPaths: GetStaticPaths = async () => {
     return {
         paths: [{ params: { id: '0' } }, { params: { id: '1' } }],
-        fallback: false, // can also be true or 'blocking'
+        fallback: true, // can also be true or 'blocking'
       }
     
   };
