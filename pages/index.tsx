@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Banner from '../components/banner';
+import Banner from '../components/banner/banner';
+import Card from '../components/card/card';
 import styles from '../styles/Home.module.css';
 
 
@@ -32,6 +33,12 @@ console.log("AAAAAAHHH");
        <div className={styles.heroImage}>
        <Image src="/static/hero-image.png" alt="another" width={700} height={400} />
        </div>
+       <Card 
+        name='Dark Horse Coffee'
+        imgUrl='/hero-image.png'
+        href="/coffee-store/darkhorse-coffee"
+       
+       />
       </main>
   </div>
   )
