@@ -33,14 +33,26 @@ console.log("AAAAAAHHH");
        <div className={styles.heroImage}>
        <Image src="/static/hero-image.png" alt="another" width={700} height={400} />
        </div>
+       <div className={styles.cardLayout} >
        <Card 
         name='Dark Horse Coffee'
         imgUrl='/static/hero-image.png'
         href="/coffee-store/darkhorse-coffee"
-
-
-       
-       />
+        className={styles.card}
+        />
+        <Card 
+        name='Dark Horse Coffee'
+        imgUrl='/static/hero-image.png'
+        href="/coffee-store/darkhorse-coffee"
+        className={styles.card}
+        />
+        <Card 
+        name='Dark Horse Coffee'
+        imgUrl='/static/hero-image.png'
+        href="/coffee-store/darkhorse-coffee"
+        className={styles.card}
+        />
+        </div>
       </main>
   </div>
   )
